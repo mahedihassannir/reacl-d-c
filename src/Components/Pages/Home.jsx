@@ -10,7 +10,7 @@ const Home = () => {
     useState(() => {
 
 
-        fetch(`http://localhost:5000/users `)
+        fetch(`http://localhost:5000/users`)
 
             .then(res => res.json())
             .then(data => Setdata(data))
@@ -61,7 +61,7 @@ const Home = () => {
                                 </figure>
                                 <div className="card-body items-center text-center">
                                     <h2 className="card-title">{res.title}</h2>
-                                    <p>{res.description.slice(0, 100)}</p>
+                                    <p>{res.description}</p>
                                     <div className="card-actions">
                                         <Link to={`/user/${res._id}`}>
 

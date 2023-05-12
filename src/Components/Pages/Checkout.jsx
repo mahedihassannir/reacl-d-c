@@ -21,6 +21,14 @@ const Checkout = () => {
 
     // }
 
+
+
+
+
+
+
+
+
     let handleFrm = (e) => {
         e.preventDefault()
 
@@ -30,9 +38,24 @@ const Checkout = () => {
         let number = form.mobile.value
 
 
-        let total = { name, number, title, _id, img, description }
+        let total = { name, number, title, _id, img, description}
 
         console.log(total);
+
+
+        fetch(`http://localhost:5000/users`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+
+            body: JSON.stringify(total)
+        })
+
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
 
     }
 
@@ -72,7 +95,7 @@ const Checkout = () => {
                             <td>
 
                                 <br />
-                                <span className="badge badge-ghost badge-sm">{description.slice(0, 100)}</span>
+                                <span className="badge badge-ghost badge-sm">{description}</span>
                             </td>
                             <td></td>
 
